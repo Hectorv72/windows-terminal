@@ -57,7 +57,6 @@
           ],
           "properties": {
             "branch_icon": "\uf418 ",
-            "commit_icon": "\uf431 ",
             "branch_max_length": 25,
             "fetch_stash_count": true,
             "fetch_status": true,
