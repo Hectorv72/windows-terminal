@@ -7,13 +7,24 @@
         {
           "foreground": "#21c7a8",
           "properties": {
-            "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
-            "windows": "\uf17a",
-            "linux": "\uf17c",
-            "macos": "\uf179",
-            "android": "\uf17b",
+            "alpine": "\uf300",
+            "arch": "\uf303",
+            "centos": "\uf304",
+            "debian": "\uf306",
+            "elementary": "\uf309",
+            "fedora": "\uf30a",
+            "gentoo": "\uf30d",
+            "linux": "\ue712",
+            "macos": "\uf179 ",
             "manjaro": "\uf312",
-            "debian": "\uf306"
+            "mint": "\uf30f",
+            "opensuse": "\uf314",
+            "raspbian": "\uf315",
+            "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}}",
+            "ubuntu": "\uf31b ",
+            "windows": "\uf871 ",
+            "wsl": "\ue712",
+            "wsl_separator": " on "
           },
           "style": "plain",
           "type": "os"
@@ -49,7 +60,7 @@
             "fetch_stash_count": true,
             "fetch_status": true,
             "fetch_upstream_icon": true,
-            "template": " <#ffffff>on</> {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} "
+            "template": " <#ffffff>on</> {{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}"
           },
           "style": "plain",
           "type": "git"
@@ -58,7 +69,7 @@
           "foreground": "#98C379",
           "properties": {
             "fetch_version": true,
-            "template": "<#ffffff>\uf63d</> \uE718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
+            "template": " <#ffffff>\uf63d</> \uE718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
           },
           "style": "plain",
           "type": "node"
@@ -69,7 +80,7 @@
           "properties": {
             "display_mode": "files",
             "fetch_virtual_env": false,
-            "template": "<#ffffff>\uf63d</> \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}"
+            "template": " <#ffffff>\uf63d</> \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}"
           },
           "style": "plain",
           "type": "python"
@@ -98,6 +109,17 @@
       "alignment": "right",
       "segments": [
         {
+          "type": "executiontime",
+          "style": "plain",
+          "foreground": "#9b22e6",
+          "properties": {
+            "threshold": 500,
+            "style": "austin",
+            "always_enabled": true,
+            "template": "\uf64f {{ .FormattedMs }} <#ffffff>\uf142</> "
+          }
+        },
+        {
           "type": "battery",
           "style": "plain",
           "powerline_symbol": "\uE0B0",
@@ -108,7 +130,7 @@
             "{{if eq \"Full\" .State.String}}#00be49{{end}}"
           ],
           "properties": {
-            "template": " {{ if not .Error }}{{ .Icon }}{{ if eq \"Charging\" .State.String }}\uf583{{ else if eq \"Full\" .State.String }}\uf58e{{ else }}{{ if gt .Percentage 89 }}\uf578{{ else if gt .Percentage 69 }}\uf57f{{ else if gt .Percentage 49 }}\uf57d{{ else if gt .Percentage 10 }}\uf57b{{ else }}\uf582{{ end }}{{ end }} {{ .Percentage }}%{{ end }}"
+            "template": "{{ if not .Error }}{{ .Icon }}{{ if eq \"Charging\" .State.String }}\uf583{{ else if eq \"Full\" .State.String }}\uf58e{{ else }}{{ if gt .Percentage 89 }}\uf578{{ else if gt .Percentage 69 }}\uf57f{{ else if gt .Percentage 49 }}\uf57d{{ else if gt .Percentage 10 }}\uf57b{{ else }}\uf582{{ end }}{{ end }} {{ .Percentage }}%{{ end }}"
           }
         }
       ],
@@ -121,7 +143,7 @@
         {
           "foreground": "#63F08C",
           "properties": {
-            "template": "\uf63d "
+            "template": "\uf63d"
           },
           "style": "plain",
           "type": "text"

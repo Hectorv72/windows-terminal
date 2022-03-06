@@ -1,0 +1,10 @@
+{
+  "foreground": "#ffffff",
+  "properties": {
+    "command": "",
+    "shell": "bash",
+    "template": " {{ .Output }} "
+  },
+  "style": "plain",
+  "type": "command"
+}
