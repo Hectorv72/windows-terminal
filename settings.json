@@ -41,39 +41,28 @@
         [
             {
                 "acrylicOpacity": 0.69999999999999996,
+                "antialiasingMode": "grayscale",
                 "backgroundImage": null,
                 "backgroundImageAlignment": "center",
                 "backgroundImageOpacity": 0.10000000000000001,
                 "colorScheme": "Color Scheme 10",
                 "commandline": "powershell.exe",
+                "cursorShape": "bar",
+                "experimental.retroTerminalEffect": false,
                 "font": 
                 {
                     "face": "CaskaydiaCove Nerd Font",
-                    "size": 14
+                    "size": 13,
+                    "weight": "normal"
                 },
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "hidden": false,
+                "intenseTextStyle": "bright",
                 "name": "Windows PowerShell",
+                "padding": "8",
                 "startingDirectory": "%USERPROFILE%",
+                "tabTitle": "PowerShell",
                 "useAcrylic": true
-            },
-            {
-                "commandline": "cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "S\u00edmbolo del sistema"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
-                "hidden": false,
-                "name": "Debian",
-                "source": "Windows.Terminal.Wsl"
             },
             {
                 "acrylicOpacity": 0.69999999999999996,
@@ -94,7 +83,7 @@
                 "guid": "{723c2174-8bae-4551-a463-7daf3c888a52}",
                 "historySize": 9001,
                 "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "Admin Powershell",
+                "name": "Admin PowerShell",
                 "padding": "8, 8, 8, 8",
                 "snapOnInput": true,
                 "startingDirectory": null,
@@ -102,29 +91,22 @@
                 "useAcrylic": true
             },
             {
-                "acrylicOpacity": 0.69999999999999996,
-                "altGrAliasing": true,
-                "antialiasingMode": "grayscale",
-                "backgroundImage": null,
-                "backgroundImageAlignment": "center",
-                "backgroundImageOpacity": 0.10000000000000001,
-                "closeOnExit": "graceful",
-                "colorScheme": "Color Scheme 10",
-                "commandline": "powershell.exe",
-                "cursorShape": "bar",
-                "font": 
-                {
-                    "face": "CaskaydiaCove Nerd Font",
-                    "size": 14
-                },
-                "guid": "{a1746794-61fa-4933-83bb-bcc327b3e7a6}",
-                "historySize": 9001,
-                "icon": "ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png",
-                "name": "Windows PowerShell (Copiar)",
-                "padding": "8, 8, 8, 8",
-                "snapOnInput": true,
-                "startingDirectory": ".",
-                "useAcrylic": true
+                "commandline": "cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "S\u00edmbolo del sistema"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure"
+            },
+            {
+                "guid": "{58ad8b0c-3ef8-5f4d-bc6f-13e4c00f2530}",
+                "hidden": false,
+                "name": "Debian",
+                "source": "Windows.Terminal.Wsl"
             }
         ]
     },
