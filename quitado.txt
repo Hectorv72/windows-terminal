@@ -1,3 +1,4 @@
+
 {
   "foreground": "#ffffff",
   "properties": {
@@ -24,3 +25,59 @@
             "tag_icon": "\u25b6 ",
             "branch_max_length": 25,
             "fetch_stash_count": true,
+
+
+
+
+
+
+
+
+C: UFB70
+
+ubuntu: UFA47
+
+wifi UF96A
+
+python UF81F
+
+database UF6B7
+
+taza: UF675
+
+
+
+
+
+
+
+
+        {
+          "foreground": "#00599C",
+          "properties": {
+            "template": " <#ffffff>\uf63d</> langugage c \ue61e {{ .Full }}"
+          },
+          "type": "sysinfo",
+          "style": "plain"
+        },
+
+
+
+        {
+      "alignment": "right",
+      "segments": [
+        {
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "trailing_diamond": "\ue0b4",
+          "foreground": "#ffffff",
+          "background": "#98C379",
+          "properties": {
+            "fetch_version": true,
+            "template": "\uf898 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }}{{ end }}{{ .Full }}"
+          },
+          "type": "node"
+        }
+      ],
+      "type": "prompt"
+    },

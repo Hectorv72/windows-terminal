@@ -31,7 +31,6 @@
         },
         {
           "foreground": "#E06C75",
-          "powerline_symbol": "\ue0b0",
           "properties": {
             "template": " <#ffffff>\uf63d</> \uf292 root"
           },
@@ -70,14 +69,13 @@
           "foreground": "#98C379",
           "properties": {
             "fetch_version": true,
-            "template": " <#ffffff>\uf63d</> \uE718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
+            "template": " <#ffffff>\uf63d</> \uf898 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
           },
           "style": "plain",
           "type": "node"
         },
         {
           "foreground": "#FFDE57",
-          "powerline_symbol": "\ue0b0",
           "properties": {
             "display_mode": "files",
             "fetch_virtual_env": false,
@@ -87,13 +85,28 @@
           "type": "python"
         },
         {
-          "foreground": "#4063D8",
-          "powerline_symbol": "\uE0b0",
+          "foreground": "#787CB5",
           "properties": {
-            "template": " \ue73d {{ .Full }} "
+            "template": " <#ffffff>\uf63d</> \uf81e {{ .Full }} "
           },
           "type": "php",
-          "style": "powerline"
+          "style": "plain"
+        },
+        {
+          "foreground": "#EC2025",
+          "properties": {
+            "template": " <#ffffff>\uf63d</> \uf675 {{ .Full }}"
+          },
+          "type": "java",
+          "style": "plain"
+        },
+        {
+          "foreground": "#0075BA",
+          "properties": {
+            "template": " <#ffffff>\uf63d</> \uE798 {{ .Full }} "
+          },
+          "type": "dart",
+          "style": "plain"
         },
         {
           "foreground": "#C94A16",
@@ -123,7 +136,6 @@
         {
           "type": "battery",
           "style": "plain",
-          "powerline_symbol": "\uE0B0",
           "foreground": "#f0f0f0",
           "foreground_templates": [
             "{{if eq \"Charging\" .State.String}}#ffe600{{end}}",
@@ -133,6 +145,17 @@
           "properties": {
             "template": "{{ if not .Error }}{{ .Icon }}{{ if eq \"Charging\" .State.String }}\uf583{{ else if eq \"Full\" .State.String }}\uf58e{{ else }}{{ if gt .Percentage 89 }}\uf578{{ else if gt .Percentage 69 }}\uf57f{{ else if gt .Percentage 49 }}\uf57d{{ else if gt .Percentage 10 }}\uf57b{{ else }}\uf582{{ end }}{{ end }} {{ .Percentage }}%{{ end }}"
           }
+        },
+        {
+          "foreground": "#FFFFFF",
+          "foreground_templates": [
+            "{{ if (lt .Signal 60) }}#DD6611{{ else if (lt .Signal 90) }}#FFFFFF{{ else }}#11CC11{{ end }}"
+          ],
+          "properties": {
+            "template": " <#ffffff>\uf142</> \ufaa8"
+          },
+          "type": "wifi",
+          "style": "plain"
         }
       ],
       "type": "prompt"
