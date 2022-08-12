@@ -7,6 +7,7 @@
         {
           "foreground": "#FFFFFF",
           "properties": {
+            "windows": "<#0079D5>\uf871</>",
             "alpine": "<#0D597F>\uf300</>",
             "arch": "<#1793D1>\uf303</>",
             "centos": "<#98277B>\uf304</>",
@@ -21,27 +22,28 @@
             "opensuse": "<#6DB123>\uf314</>",
             "raspbian": "<#B2103F>\uf315</>",
             "ubuntu": "<#D24413>\uf31b</>",
-            "windows": "<#0079D5>\uf871</>",
             "wsl": "\uf603",
-            "wsl_separator": " on "
+            "wsl_separator": " on ",
+            "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}}"
           },
           "style": "plain",
-          "template": "{{ if .WSL }}WSL at {{ end }}{{.Icon}}",
           "type": "os"
         },
         {
           "foreground": "#E06C75",
+          "properties": {
+            "template": " <#ffffff>\uf63d</> \uf292 root"
+          },
           "style": "plain",
-          "template": " <#ffffff>\uf63d</> \uf292 root",
           "type": "root"
         },
         {
           "foreground": "#55B9C4",
           "properties": {
-            "style": "folder"
+            "style": "folder",
+            "template": " <#ffffff>\uf63d</> {{if eq .Path \".git\" }}\uf7a3{{ else }}\ue5fe{{end}} {{ .Path }}"
           },
           "style": "plain",
-          "template": " <#ffffff>\uf63d</> {{if eq .Path \".git\" }}\uf7a3{{ else }}\ue5fe{{end}} {{ path .Path .Location }}",
           "type": "path"
         },
         {
@@ -57,53 +59,61 @@
             "branch_max_length": 25,
             "fetch_stash_count": true,
             "fetch_status": true,
-            "fetch_upstream_icon": true
+            "fetch_upstream_icon": true,
+            "template": " <#ffffff>on</> {{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ end }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}"
           },
           "style": "plain",
-          "template": " <#ffffff>on</> {{ if .UpstreamIcon }}{{ .UpstreamIcon }} {{ end }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}",
           "type": "git"
         },
         {
           "foreground": "#98C379",
           "properties": {
-            "fetch_version": true
+            "fetch_version": true,
+            "template": " <#ffffff>\uf63d</> \uf898 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}"
           },
           "style": "plain",
-          "template": " <#ffffff>\uf63d</> \uf898 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
           "type": "node"
         },
         {
           "foreground": "#FFDE57",
           "properties": {
             "display_mode": "files",
-            "fetch_virtual_env": false
+            "fetch_virtual_env": false,
+            "template": " <#ffffff>\uf63d</> \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}"
           },
           "style": "plain",
-          "template": " <#ffffff>\uf63d</> \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}",
           "type": "python"
         },
         {
           "foreground": "#787CB5",
-          "style": "plain",
-          "template": " <#ffffff>\uf63d</> \uf81e {{ .Full }} ",
-          "type": "php"
+          "properties": {
+            "template": " <#ffffff>\uf63d</> \uf81e {{ .Full }} "
+          },
+          "type": "php",
+          "style": "plain"
         },
         {
           "foreground": "#EC2025",
-          "style": "plain",
-          "template": " <#ffffff>\uf63d</> \uf675 {{ .Full }}",
-          "type": "java"
+          "properties": {
+            "template": " <#ffffff>\uf63d</> \uf675 {{ .Full }}"
+          },
+          "type": "java",
+          "style": "plain"
         },
         {
           "foreground": "#0075BA",
-          "style": "plain",
-          "template": " <#ffffff>\uf63d</> \ue798 {{ .Full }} ",
-          "type": "dart"
+          "properties": {
+            "template": " <#ffffff>\uf63d</> \uE798 {{ .Full }} "
+          },
+          "type": "dart",
+          "style": "plain"
         },
         {
           "foreground": "#C94A16",
+          "properties": {
+            "template": " <#ffffff>\uf63d</> \uf65b "
+          },
           "style": "plain",
-          "template": " <#ffffff>\uf63d</> \uf65b ",
           "type": "exit"
         }
       ],
@@ -113,35 +123,39 @@
       "alignment": "right",
       "segments": [
         {
+          "type": "executiontime",
+          "style": "plain",
           "foreground": "#9b22e6",
           "properties": {
-            "always_enabled": true,
+            "threshold": 500,
             "style": "austin",
-            "threshold": 500
-          },
-          "style": "plain",
-          "template": "\uf64f {{ .FormattedMs }} <#ffffff>\uf142</> ",
-          "type": "executiontime"
+            "always_enabled": true,
+            "template": "\uf64f {{ .FormattedMs }} <#ffffff>\uf142</> "
+          }
         },
         {
+          "type": "battery",
+          "style": "plain",
           "foreground": "#f0f0f0",
           "foreground_templates": [
             "{{if eq \"Charging\" .State.String}}#ffe600{{end}}",
             "{{if eq \"Discharging\" .State.String }}{{ if gt .Percentage 40 }}#f0f0f0{{ else if gt .Percentage 10 }}#ee7300{{ else }}#ee1400{{end}}{{end}}",
             "{{if eq \"Full\" .State.String}}#00be49{{end}}"
           ],
-          "style": "plain",
-          "template": "{{ if not .Error }}{{ .Icon }}{{ if eq \"Charging\" .State.String }}\uf583{{ else if eq \"Full\" .State.String }}\uf58e{{ else }}{{ if gt .Percentage 89 }}\uf578{{ else if gt .Percentage 69 }}\uf57f{{ else if gt .Percentage 49 }}\uf57d{{ else if gt .Percentage 10 }}\uf57b{{ else }}\uf582{{ end }}{{ end }} {{ .Percentage }}%{{ end }}",
-          "type": "battery"
+          "properties": {
+            "template": "{{ if not .Error }}{{ .Icon }}{{ if eq \"Charging\" .State.String }}\uf583{{ else if eq \"Full\" .State.String }}\uf58e{{ else }}{{ if gt .Percentage 89 }}\uf578{{ else if gt .Percentage 69 }}\uf57f{{ else if gt .Percentage 49 }}\uf57d{{ else if gt .Percentage 10 }}\uf57b{{ else }}\uf582{{ end }}{{ end }} {{ .Percentage }}%{{ end }}"
+          }
         },
         {
           "foreground": "#FFFFFF",
           "foreground_templates": [
             "{{ if (lt .Signal 60) }}#DD6611{{ else if (lt .Signal 90) }}#FFFFFF{{ else }}#11CC11{{ end }}"
           ],
-          "style": "plain",
-          "template": " <#ffffff>\uf142</> \ufaa8",
-          "type": "wifi"
+          "properties": {
+            "template": " <#ffffff>\uf142</> \ufaa8"
+          },
+          "type": "wifi",
+          "style": "plain"
         }
       ],
       "type": "prompt"
@@ -152,15 +166,19 @@
       "segments": [
         {
           "foreground": "#63F08C",
+          "properties": {
+            "template": "\uf63d"
+          },
           "style": "plain",
-          "template": "\uf63d",
           "type": "text"
         }
       ],
       "type": "prompt"
     }
   ],
+  "console_title": true,
+  "console_title_style": "template",
   "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "final_space": true,
-  "version": 2
+  "version": 1
 }
