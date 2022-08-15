@@ -1,0 +1,9 @@
+{
+          "foreground": "#FFFFFF",
+          "foreground_templates": [
+            "{{ if (lt .Signal 60) }}#DD6611{{ else if (lt .Signal 90) }}#FFFFFF{{ else }}#11CC11{{ end }}"
+          ],
+          "style": "plain",
+          "template": " <#ffffff>\u2502</> \ufaa8",
+          "type": "wifi"
+        }

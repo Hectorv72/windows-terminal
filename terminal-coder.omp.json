@@ -30,10 +30,10 @@
           "type": "os"
         },
         {
-          "foreground": "#E06C75",
+          "type": "text",
           "style": "plain",
-          "template": " <#ffffff>\uf63d</> \uf292 root",
-          "type": "root"
+          "foreground": "#FFFFFF",
+          "template": " \uf63d {{if .Root}}<#E06C75>\uf292 {{.UserName}}</>{{ else }}{{.UserName}}{{end}}"
         },
         {
           "foreground": "#55B9C4",
@@ -71,6 +71,13 @@
           "style": "plain",
           "template": " <#ffffff>\uf63d</> \uf898 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
           "type": "node"
+        },
+        {
+          "foreground": "#C23535",
+          "type": "npm",
+          "style": "plain",
+          "powerline_symbol": "\uE0B0",
+          "template": " <#ffffff>\uf63d</> \ue71e  {{ .Full }}"
         },
         {
           "foreground": "#FFDE57",
@@ -120,7 +127,7 @@
             "threshold": 500
           },
           "style": "plain",
-          "template": "\uf64f {{ .FormattedMs }} <#ffffff>\uf142</> ",
+          "template": "\uf64f {{ .FormattedMs }}",
           "type": "executiontime"
         },
         {
@@ -131,17 +138,8 @@
             "{{if eq \"Full\" .State.String}}#00be49{{end}}"
           ],
           "style": "plain",
-          "template": "{{ if not .Error }}{{ .Icon }}{{ if eq \"Charging\" .State.String }}\uf583{{ else if eq \"Full\" .State.String }}\uf58e{{ else }}{{ if gt .Percentage 89 }}\uf578{{ else if gt .Percentage 69 }}\uf57f{{ else if gt .Percentage 49 }}\uf57d{{ else if gt .Percentage 10 }}\uf57b{{ else }}\uf582{{ end }}{{ end }} {{ .Percentage }}%{{ end }}",
+          "template": " {{ if not .Error }}{{ .Icon }}{{ if eq \"Charging\" .State.String }}\uf583{{ else if eq \"Full\" .State.String }}\uf58e{{ else }}{{ if gt .Percentage 89 }}\uf578{{ else if gt .Percentage 69 }}\uf57f{{ else if gt .Percentage 49 }}\uf57d{{ else if gt .Percentage 10 }}\uf57b{{ else }}\uf582{{ end }}{{ end }} {{ .Percentage }}%{{ end }}",
           "type": "battery"
-        },
-        {
-          "foreground": "#FFFFFF",
-          "foreground_templates": [
-            "{{ if (lt .Signal 60) }}#DD6611{{ else if (lt .Signal 90) }}#FFFFFF{{ else }}#11CC11{{ end }}"
-          ],
-          "style": "plain",
-          "template": " <#ffffff>\uf142</> \ufaa8",
-          "type": "wifi"
         }
       ],
       "type": "prompt"
